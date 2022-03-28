@@ -9,8 +9,8 @@ amqp.connect('amqp://localhost', function(error0, connection) {
     //create a CHANNEL, which is where most of the api for getting things done resides
     connection.createChannel(function(error1, channel) {
     //declare a QUEUE for us to send to
-    let queue = "hello"
-    let msg = "hi, mom!"
+    let queue = "crypto"
+    let msg = "Bitcoin is freedom!"
     //then PUBLISH a message to the queue    
     channel.assertQueue(queue, {
         durable:false
