@@ -14,4 +14,4 @@ A publisher will publish jobs/tasks and there will be consumers that will take a
 
 # Environment setup
 * install Docker
-* docker run --name rabbitmq -p 5672:5672 rabbitmq
+* docker run --name event-broker -p 5672:5672 rabbitmq
