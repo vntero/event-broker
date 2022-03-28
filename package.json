@@ -1,0 +1,20 @@
+{
+  "name": "event-broker",
+  "version": "1.0.0",
+  "description": "An Event Broker created with TypeScript and Node using a RabbitMQ server on top of a Docker container.",
+  "main": "publisher.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vntero/event-broker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vntero/event-broker/issues"
+  },
+  "homepage": "https://github.com/vntero/event-broker#readme"
+}
