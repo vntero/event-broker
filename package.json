@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/vntero/event-broker/issues"
   },
-  "homepage": "https://github.com/vntero/event-broker#readme"
+  "homepage": "https://github.com/vntero/event-broker#readme",
+  "devDependencies": {
+    "@types/amqplib": "^0.8.2",
+    "@types/node": "^17.0.23"
+  },
+  "dependencies": {
+    "amqplib": "^0.8.0"
+  }
 }
