@@ -1,7 +1,12 @@
-//require the relevant library, promised based
-import {connect, Connection, ConsumeMessage} from 'amqplib'
+//require/import the relevant library
+import amqp from 'amqplib';
 
-//now we will establish a coonnection to the server
+//establish a CONNECTION to the server
+amqp.connect('amqp://localhost', function(error0, connection) {
+    
+})
+
+//create a CHANNEL, which is where most of the api for getting things done resides
 
 
 
