@@ -20,3 +20,5 @@ A publisher will publish jobs/tasks and there will be consumers that will take a
 * npm i --save-dev @types/node
 * npm i amqplib
 * npm i --save-dev @types/amqplib
+* add a docker compose test yml file?
+
