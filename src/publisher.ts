@@ -12,12 +12,14 @@ amqp.connect('amqp://localhost', function(error0, connection) {
     connection.createChannel(function(error1, channel) {
     //declare a QUEUE for us to send to
     let queue = "crypto"
-    let msg = "Bitcoin is freedom! Ethereum is decentralisation!"
+    let msg = process.argv.slice(2).join(' ') || "Bitcoin is freedom! Ethereum is decentralisation!"
     //then PUBLISH a message to the queue    
     channel.assertQueue(queue, {
-        durable:false
+        durable: true
     })
-    channel.sendToQueue(queue, Buffer.from(msg))
+    channel.sendToQueue(queue, Buffer.from(msg), {
+        persistent: true
+    })
     console.log("[x] Sent %s", msg)
     //CLOSE the connection and EXIT
     setTimeout(function() {
