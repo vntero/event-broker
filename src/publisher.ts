@@ -1,3 +1,5 @@
+export {}
+
 //require the Advance Message Queue Protocol Library
 const amqp = require('amqplib/callback_api');
 
@@ -10,7 +12,7 @@ amqp.connect('amqp://localhost', function(error0, connection) {
     connection.createChannel(function(error1, channel) {
     //declare a QUEUE for us to send to
     let queue = "crypto"
-    let msg = "Bitcoin is freedom!"
+    let msg = "Bitcoin is freedom! Ethereum is decentralisation!"
     //then PUBLISH a message to the queue    
     channel.assertQueue(queue, {
         durable:false
