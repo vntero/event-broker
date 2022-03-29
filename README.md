@@ -15,3 +15,8 @@ A publisher will publish jobs/tasks and there will be consumers that will take a
 # Environment setup
 * install Docker
 * docker run --name event-broker -p 5672:5672 rabbitmq
+* npm init -y
+* npm i -d typescript
+* npm i --save-dev @types/node
+* npm i amqplib
+* npm i --save-dev @types/amqplib
