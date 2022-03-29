@@ -1,8 +1,8 @@
-//require/import the relevant library
-import { connect } from 'amqplib'
+//require the Advance Message Queue Protocol Library
+const amqp = require('amqplib/callback_api');
 
 //establish a CONNECTION to the server
-connect('amqp://localhost', function(error0, connection) {
+amqp.connect('amqp://localhost', function(error0, connection) {
     if (error0) {
         throw error0;
     }

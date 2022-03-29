@@ -1,8 +1,8 @@
 //require/import the relevant library
-import { connect } from 'amqplib'
+const amqp = require('amqplib/callback_api')
 
 //connect to server
-connect('amqp://localhost', function(error0, connection) {
+amqp.connect('amqp://localhost', function(error0, connection) {
     if (error0) {
         throw error0
     }
