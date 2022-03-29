@@ -1,8 +1,8 @@
 //require/import the relevant library
-import amqp from 'amqplib';
+import { connect } from 'amqplib'
 
 //establish a CONNECTION to the server
-amqp.connect('amqp://localhost', function(error0, connection) {
+connect('amqp://localhost', function(error0, connection) {
     if (error0) {
         throw error0;
     }
