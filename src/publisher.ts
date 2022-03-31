@@ -1,3 +1,4 @@
+//this is crucial when using TypeScript. With this export{} we're allowed to use the same variable throughout the project
 export {}
 
 //require the Advance Message Queue Protocol Library

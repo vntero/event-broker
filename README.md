@@ -3,6 +3,7 @@ An Event Broker created with TypeScript and Node using a RabbitMQ server on top 
 
 # It will be called: Async Job Exectution Engine
 A publisher will publish jobs/tasks and there will be consumers that will take a job and start executing it.
+The ideal server will be with Topics, allowing messages to be received based on a pattern.
 
 # Abstractions
 * RabbitMQ server listens to 5672 port as default;
@@ -20,5 +21,6 @@ A publisher will publish jobs/tasks and there will be consumers that will take a
 * npm i --save-dev @types/node
 * npm i amqplib
 * npm i --save-dev @types/amqplib
+* npm install --save-dev jest (testing framework)
 * add a docker compose test yml file?
 
