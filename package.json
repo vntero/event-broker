@@ -4,7 +4,7 @@
   "description": "An Event Broker created with TypeScript and Node using a RabbitMQ server on top of a Docker container.",
   "main": "publisher.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
