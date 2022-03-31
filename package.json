@@ -19,7 +19,8 @@
   "homepage": "https://github.com/vntero/event-broker#readme",
   "devDependencies": {
     "@types/amqplib": "^0.8.2",
-    "@types/node": "^17.0.23"
+    "@types/node": "^17.0.23",
+    "jest": "^27.5.1"
   },
   "dependencies": {
     "amqplib": "^0.8.0",
