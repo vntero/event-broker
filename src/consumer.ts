@@ -17,7 +17,7 @@ amqp.connect('amqp://localhost', function(error0, connection) {
     connection.createChannel(function(error1, channel) {
         if (error1) {throw error1}
         //specify the name of the queue we'll be getting our message from
-        let exchange = 'crypto'
+        let exchange = 'topic_logs'
         //go check the EXCHANGE
         channel.assertExchange(exchange, 'topic', {durable: false})
         //after asserting the exchange we need to assert the queue

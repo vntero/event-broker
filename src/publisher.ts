@@ -11,13 +11,13 @@ amqp.connect('amqp://localhost', function(error0, connection) {
     connection.createChannel(function(error1, channel) {
         if (error1) {throw error1}
     //declare an EXCHANGE for us to send to
-    let exchange = 'crypto'
+    let exchange = 'topic_logs'
     //declare ARGS
     let args = process.argv.slice(2)
     //declare a KEY
     let key = (args.length > 0) ? args[0] : 'anonymous.info'
     //what's the MESSAGE?
-    let msg = process.argv.slice(1).join(' ') || "Bitcoin is freedom! ETH is king! ADA is queen!"
+    let msg = args.slice(1).join(' ') || "Bitcoin is freedom! ETH is king! ADA is queen!"
     //then ASSERT a message to the exchange insted of queue and console.log it
     //when using exchange instead of queue, the second argument is the type of exchange, there are different ones with different characteristics
     channel.assertExchange(exchange, 'topic', {durable: false})
@@ -25,12 +25,12 @@ amqp.connect('amqp://localhost', function(error0, connection) {
     //if we attribute '', it means that we're allowing for the server to generate a random queue name
     channel.publish(exchange, key, Buffer.from(msg))
     console.log("[x] Sent %s", key, msg)
+    })
     //CLOSE the connection and EXIT
     setTimeout(function() {
         connection.close()
         process.exit(0)
     }, 500)
-    })
 })
 
 
