@@ -8,23 +8,27 @@ amqp.connect('amqp://localhost', function(error0, connection) {
     connection.createChannel(function(error1, channel) {
         if (error1) {throw error1}
         //specify the name of the queue we'll be getting our message from
-        let queue = 'crypto'
-        //go check the QUEUE
-        channel.assertQueue(queue, {durable: true})
-        //prefetch the channel
-        channel.prefetch(1)
-        console.log("[*] Waiting for messages in %s. To exit press CTRL+C", queue)
+        let exchange = 'crypto'
+        //go check the EXCHANGE
+        channel.assertExchange(exchange, 'fanout', {durable: false})
+        //after asserting the exchange we need to assert the queue
+        channel.assertQueue(
+            '', 
+            {exclusive: true}, 
+            function(error2, q) { 
+                if (error2) {throw error2}
+                console.log("[*] Waiting for messages in %s. To exit press CTRL+C", q.queue)
+        channel.bindQueue(q.queue, exchange, '')
+        
         //consume the message that is waiting in the queue
-        channel.consume(queue, function(msg) {
-            var secs = msg.content.toString().split('.').length - 1
-
-            console.log('[x] Received %s', msg.content.toString())
-            setTimeout(function() {
-                console.log(" [x] Done")
-                channel.ack(msg);
-            }, secs * 1000)
+        channel.consume(q.queue, function(msg) {
+            if(msg.content){
+                console.log('[x] Received %s', msg.content.toString())
+            }
+          
         }, {
-            noAck: false
+            noAck: true
         })
+        })  
     })
-}) 
+})
