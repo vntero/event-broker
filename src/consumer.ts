@@ -11,7 +11,7 @@ if (args.length == 0) {
 }
 
 //connect to server and the second argument is a function with two arguments as well
-amqp.connect('amqp://localhost', function(error0, connection) {
+export const consume = amqp.connect('amqp://localhost', function(error0, connection) {
     if (error0) {throw error0}
     //create channel on has one argument being a function with two arguments
     connection.createChannel(function(error1, channel) {
