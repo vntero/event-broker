@@ -34,6 +34,29 @@ test (
     }
 )
 
+test (
+    'Should be under 1600',
+    () => {
+        const load1 = 800
+        const load2 = 600
+        expect(load1 + load2).toBeLessThan(1600)
+    }
+)
+
+test (
+    'The is no I in Team',
+    () => {
+        expect('Team').not.toMatch(/I/i)
+    }
+)
+
+test (
+    'Admin should be in usernames',
+    () => {
+        usernames = ['john', 'karen', 'admin']
+        expect(usernames).toContain('admin')
+    }
+)
 
 ///////FOR FUTURE REFERENCE
 // //FIRST we require the unit we want to test
