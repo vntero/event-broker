@@ -58,6 +58,30 @@ test (
     }
 )
 
+//working with async data
+
+//promises
+test (
+    'User fecthed name should be Leanne Graham',
+    () => {
+        expect.assertions(1)
+        return functions.fetchUser()
+        .then(data => {
+            expect(data.name).toEqual('Leanne Graham')
+        })
+    }
+)
+
+//async await
+test (
+    'User fecthed name should be Leanne Graham',
+    async () => {
+        expect.assertions(1)
+        const data = await functions.fetchUser()
+        expect(data.name).toEqual('Leanne Graham')        
+    }
+)
+
 ///////FOR FUTURE REFERENCE
 // //FIRST we require the unit we want to test
 // const publish = require('./src/consume')
