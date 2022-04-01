@@ -27,6 +27,13 @@ test (
     }
 )
 
+test (
+    'User should be Hugo Antero object',
+    () => {
+        expect(functions.createUser()).toEqual({firstName: 'Hugo', lastName: 'Antero'})
+    }
+)
+
 
 ///////FOR FUTURE REFERENCE
 // //FIRST we require the unit we want to test
