@@ -78,7 +78,7 @@ test (
     async () => {
         expect.assertions(1)
         const data = await functions.fetchUser()
-        expect(data.name).toEqual('Leanner Graham')        
+        expect(data.name).toEqual('Leanne Graham')        
     }
 )
 
