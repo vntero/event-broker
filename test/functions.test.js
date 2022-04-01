@@ -13,6 +13,20 @@ test(
     }
 );
 
+test (
+    'Should be Null',
+    () => {
+        expect(functions.isNull()).toBeNull()
+    }
+)
+
+test (
+    'Should be falsy',
+    () => {
+        expect(functions.checkValue(undefined)).toBeFalsy()
+    }
+)
+
 
 ///////FOR FUTURE REFERENCE
 // //FIRST we require the unit we want to test
