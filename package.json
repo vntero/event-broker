@@ -4,7 +4,8 @@
   "description": "An Event Broker created with TypeScript and Node using a RabbitMQ server on top of a Docker container.",
   "main": "publisher.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "ts-node src/consumer.ts"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   "dependencies": {
     "amqplib": "^0.8.0",
     "axios": "^0.26.1",
+    "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
   }
 }

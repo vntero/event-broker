@@ -33,4 +33,5 @@ The binding key must also be in the same form. The logic behind the topic exchan
 * npm install --save-dev jest
 * add a docker compose test yml file?
 * npx tsc --init (in order to create a TS config file)
+* npm i -d ts-node (so that you don't have to compile your ts files to js every single time)
 
