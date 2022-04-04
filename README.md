@@ -25,11 +25,12 @@ The binding key must also be in the same form. The logic behind the topic exchan
 * install Docker
 * docker run --name event-broker -p 5672:5672 rabbitmq
 * npm init -y
-* npm i -d typescript
-* npm i --save-dev @types/node
+* npm i -d typescript (this command will add typescript as a dev dependency)
+* npm i --save-dev @types/node (run this to add Node.js types)
+* npm i --save-dev @types/amqplib (run this to add the AMQP types)
+* npm i --save-dev @types/jest (run this to add Jest types)
 * npm i amqplib
-* npm i --save-dev @types/amqplib
-* npm install --save-dev jest (testing framework)
-* npm install @types/jest --save-dev
+* npm install --save-dev jest
 * add a docker compose test yml file?
+* npx tsc --init (in order to create a TS config file)
 
