@@ -27,7 +27,7 @@
     "src/**/**.ts",
     "src/**/**.json",
     "types"
-  ],
+, "src/publisher.ts"  ],
   "exclude": [
     "node_modules",
     "apps"
