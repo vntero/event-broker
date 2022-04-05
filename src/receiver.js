@@ -4,7 +4,8 @@ const amqp = require('amqplib/callback_api')
 let exchange = 'crypto'
 let args = process.argv.slice(2)
 if (args.length == 0) {
-
+    console.log("Usage: receiver.js <facility>.<severity>")
+    process.exit(1)
 }
 
 amqp.connect('amqp://localhost', function(error1, connection) {
@@ -18,7 +19,7 @@ amqp.connect('amqp://localhost', function(error1, connection) {
             args.forEach(function(key) {channel.bindQueue(q.queue, exchange, key)})
             channel.consume(q.queue, function(incomingMsg) {
                 console.log(" [x] %s:'%s'", incomingMsg.fields.routingKey, incomingMsg.content.toString())
-            })
+            }, {Ack: false})
         })
     })
 })
