@@ -5,12 +5,13 @@ export {}
 const amqp = require('amqplib/callback_api');
 
 //establish a CONNECTION to the server
-export const publish = amqp.connect('amqp://localhost', function(error0, connection) {
+// export const publish = 
+amqp.connect('amqp://localhost', function(error0, connection) {
         if (error0) {throw error0}
-    //create a CHANNEL, which is where most of the api for getting things done resides
+//create a CHANNEL, which is where most of the api for getting things done resides
     connection.createChannel(function(error1, channel) {
         if (error1) {throw error1}
-    //declare an EXCHANGE for us to send to
+//declare an EXCHANGE for us to send to
     let exchange = 'topic_logs'
     //declare ARGS
     let args = process.argv.slice(2)
