@@ -1,7 +1,7 @@
 const amqp = require('amqplib/callback_api')
 
 //relevant VARIABLES for retrieving the message
-let exchange = 'crypto'
+let exchange = 'countries'
 let args = process.argv.slice(2)
 if (args.length == 0) {
     console.log("Usage: receiver.js <facility>.<severity>")
