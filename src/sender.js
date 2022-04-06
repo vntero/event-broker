@@ -4,25 +4,21 @@ const amqp = require ('amqplib/callback_api')
 let exchange = 'countries'
 let args = process.argv.slice(2)
 
-let key1 = (args.length > 0) ? args[0] : 'aeler.com'
-let key2 = (args.length > 0) ? args[0] : 'aeler.pt'
-let key3 = (args.length > 0) ? args[0] : 'aeler.ch'
-let key4 = (args.length > 0) ? args[0] : 'aeler.uk'
-
-let queue1 = 'euro';
-let queue2 = 'schengen';
-
 let msg1 = args.slice(1).join(' ') || 'Aeler dot com'
-let msg2 = args.slice(1).join(' ') || 'Aeler dot pt'
-let msg3 = args.slice(1).join(' ') || 'Aeler dot ch'
-let msg4 = args.slice(1).join(' ') || 'Aeler dot uk'
+// let msg2 = args.slice(1).join(' ') || 'Aeler dot pt'
+// let msg3 = args.slice(1).join(' ') || 'Aeler dot ch'
+// let msg4 = args.slice(1).join(' ') || 'Aeler dot uk'
 
+//the CONNECTION and EXECUTION
 amqp.connect('amqp://localhost', function(error1, connection) {
     if (error1) {throw error1}
     connection.createChannel(function(error2, channel) {
         if (error2) {throw error2}
-        channel.assertExchange(exchange, 'topic', {durable: false})
+        channel.assertExchange(exchange, 'topic', {durable: true})
         
+        // channel.assertQueue(queue, {durable: true})
+        // channel.sendToQueue(queue, Buffer.from(msg2), {persistent: true})
+
         channel.publish(exchange, key1, Buffer.from(msg1))
         console.log("[x] Sent %s: '%s'", key1, msg1)
 

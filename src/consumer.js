@@ -13,7 +13,7 @@ amqp.connect('amqp://localhost', function(error1, connection) {
     connection.createChannel(function(error2, channel) {
         if (error2) {throw error2}
         channel.assertExchange(exchange, 'topic', {durable: false})
-        channel.assertQueue('', {exclusive: true}, function(error3, q) {
+        channel.assertQueue('schengen', {exclusive: true}, function(error3, q) {
             if (error3) {throw error3}
             console.log(' [x] Waiting for logs. To exit press CTRL+C')
             args.forEach(function(key) {channel.bindQueue(q.queue, exchange, key)})
