@@ -4,7 +4,7 @@ const amqp = require('amqplib/callback_api')
 let exchange = 'countries'
 let args = process.argv.slice(2)
 if (args.length == 0) {
-    console.log("Usage: receiver.js <facility>.<severity>")
+    console.log("Usage: node executer.js [severity]")
     process.exit(1)
 }
 
@@ -12,8 +12,8 @@ amqp.connect('amqp://localhost', function(error1, connection) {
     if (error1) {throw error1}
     connection.createChannel(function(error2, channel) {
         if (error2) {throw error2}
-        channel.assertExchange(exchange, 'topic', {durable: true})
-        channel.assertQueue('euro', {exclusive: false}, function(error3, q) {
+        channel.assertExchange(exchange, 'direct', {durable: true})
+        channel.assertQueue('', {exclusive: false}, function(error3, q) {
             if (error3) {throw error3}
             console.log(' [x] Waiting for logs. To exit press CTRL+C')
             args.forEach(function(key) {channel.bindQueue(q.queue, exchange, key)})
