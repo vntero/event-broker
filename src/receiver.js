@@ -20,7 +20,7 @@ amqp.connect('amqp://localhost', function(error1, connection) {
             args.forEach(function(severity) {channel.bindQueue(q.queue, exchange, severity)})
             channel.consume(q.queue, function(incomingMsg) {
                 console.log(" [x] %s:'%s'", incomingMsg.fields.routingKey, incomingMsg.content.toString())
-                channel.ack(incomingMsg)
+                // channel.ack(incomingMsg)
             })
         })
     })
