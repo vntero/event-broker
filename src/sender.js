@@ -7,9 +7,11 @@ let args = process.argv.slice(2)
 let msg = args.slice(1).join(' ') || 'Aeler is an EUROPEAN company'
 let msg2 = args.slice(1).join(' ') || 'Aeler is an AFRICAN brand'
 let msg3 = args.slice(1).join(' ') || 'Aeler is an ASIAN firm'
+let msg4 = args.slice(1).join(' ') || 'Aeler is an AMERICAN giant'
 let severity = (args.length > 0) ? args[0] : 'europe'
 let severity2 = (args.length > 0) ? args[0] : 'africa'
 let severity3 = (args.length > 0) ? args[0] : 'asia'
+let severity4 = (args.length > 0) ? args[0] : 'america'
 
 
 //the CONNECTION and EXECUTION
@@ -21,7 +23,8 @@ amqp.connect('amqp://localhost', function(error1, connection) {
         channel.publish(exchange, severity, Buffer.from(msg))
         channel.publish(exchange, severity2, Buffer.from(msg2))
         channel.publish(exchange, severity3, Buffer.from(msg3))
-        console.log('Sent to', severity, severity2, severity3)
+        channel.publish(exchange, severity4, Buffer.from(msg4))
+        console.log('Sent to', severity, severity2, severity3, severity4)
     })
     setTimeout(function() {
         connection.close()

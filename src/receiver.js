@@ -13,13 +13,14 @@ amqp.connect('amqp://localhost', function(error1, connection) {
     connection.createChannel(function(error2, channel) {
         if (error2) {throw error2}
         channel.assertExchange(exchange, 'direct', {durable: true})
+        
         channel.assertQueue('', {exclusive: false}, function(error3, q) {
             if (error3) {throw error3}
             console.log(' [x] Waiting for logs. To exit press CTRL+C')
             args.forEach(function(severity) {channel.bindQueue(q.queue, exchange, severity)})
             channel.consume(q.queue, function(incomingMsg) {
                 console.log(" [x] %s:'%s'", incomingMsg.fields.routingKey, incomingMsg.content.toString())
-            }, {Ack: true})
+            }, {Ack: false})
         })
     })
 })
